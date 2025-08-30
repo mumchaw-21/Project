@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0d0124;
+    color: #fff;
+    text-align: center;
+    /* ... (rest of the background styles remain the same) ... */
+    background-image:
+        radial-gradient(circle, #b408f3 1px, transparent 1px),
+        repeating-linear-gradient(210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px);
+    background-size: 50px 50px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+}
+    .login-container {
+      background: rgb(79, 89, 233);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 107%;
+      padding: 11px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  
+</style>
+</head>
+<body>
+<div class="login-container">
+<h2>Login</h2>
+<input type="text" id="loginName" placeholder="Name">
+<input type="password" id="loginPassword" placeholder="Password">
+<button onclick="login()">Login</button>
+
+<p>Don't have an account? <a href="Singup.html">Signup here</a></p>
+</div>
+<script>
+
+function login() {
+  const name = document.getElementById("loginName").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
+
+
+  const savedName = localStorage.getItem("name");
+  const savedPassword = localStorage.getItem("password");
+  if(name === savedName && password === savedPassword) {
+    alert("Login successful!");
+    window.location.href="home.html";
+  } else {
+    alert("Invalid name or password!");
+  }
+}
+
+</script>
+
+</body>
+</html>

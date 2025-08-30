@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Signup</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0d0124;
+    color: #fff;
+    text-align: center;
+    background-image:
+        radial-gradient(circle, #3a0050 1px, transparent 1px),
+        repeating-linear-gradient(210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px);
+    background-size: 50px 50px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+}
+    .signup-container {
+      background: rgb(27, 39, 146);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #f8f7f7;
+    }
+    button {
+      width: 107%;
+      padding: 11px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="signup-container">
+<h2>Signup</h2>
+<input type="text" id="signupName" placeholder="Name"><br>
+<input type="email" id="signupEmail" placeholder="Email"><br>
+<input type="password" id="signupPassword" placeholder="Password"><br>
+<button onclick="signup()">Signup</button>
+
+<p>Already have an account? <a href="login.html" style="color: red">Login here</a></p>
+</div>
+
+<script>
+function signup() {
+  const name = document.getElementById("signupName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim();
+  const password = document.getElementById("signupPassword").value.trim();
+
+  // Validate Name: First letter must be a capital letter
+  if (!name.length || name.charAt(0) !== name.charAt(0).toUpperCase()) {
+    alert("Name must start with a capital letter.");
+    return;
+  }
+
+  // Validate Email: Must contain the "@" symbol
+  if (!email.includes("@")) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  // Validate Password: Must be at least 8 characters long
+  if (password.length < 8) {
+    alert("Password must be at least 8 characters long.");
+    return;
+  }
+
+  // Save to localStorage
+  localStorage.setItem("name", name);
+  localStorage.setItem("email", email);
+  localStorage.setItem("password", password);
+
+  alert("Signup successful! You can now login.");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

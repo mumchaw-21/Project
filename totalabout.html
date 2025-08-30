@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/navbar.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 80px; /* Navbar အောက်မှာ နေရာချန်ထားခြင်း */
+            background-color: rgb(31, 57, 58);
+            color: white;
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .about-container h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+            border-bottom: 2px solid #5a5a5a;
+            padding-bottom: 5px;
+        }
+
+        .about-container p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .about-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-container li {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            line-height: 1.5;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #4CAF50;
+        }
+
+        a {
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="left-group">
+            <span class="menu-icon" onclick="openMenu()">&#9776;</span>
+            <div class="logo">
+                <img src="picture/secondlogo.jpg" alt="Logo">
+            </div>
+            <h2>Quiz</h2>
+        </div>
+    </div>
+    <div id="sidemenu" class="sidemenu">
+        <ul class="setting" role="menu" aria-label="Main menu">
+        <a href="home.html" class="setting-option"><i class="fa-regular fa-address-book"></i>Home</a>
+        <a href="totalabout.html" class="setting-option"><i class="fa-solid fa-circle-question"></i>About us</a>
+        <a href="contactus.html" class="setting-option"><i class="fa-regular fa-address-book"></i> Contacts</a>
+        <a href="addaccount.html" class="setting-option"><i class="fa-regular fa-circle-plus"></i>Add Account</a>
+        <a href="editprofile.html" class="setting-option"><i class="fa-solid fa-key"></i> Update Password</a> 
+        <a href="logout.html"  class="setting-option"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+        </ul>
+    </div>
+    
+    <div class="about-container">
+        <section class="about">
+            <h2>Account and Profile Management</h2>
+            <p>Users can manage their accounts in the following ways:</p>
+            <ul>
+                <li>
+                    <i class="fas fa-image feature-icon"></i> 
+                    Add Profile Picture: You can click on the profile picture to add your own photos.
+                </li>
+                <li>
+                    <i class="fas fa-user-plus feature-icon"></i> 
+                    Add Account: By clicking "Add Account," you can add your friends to the app simply by knowing their name, email, and password.
+                </li>
+                <li>
+                    <i class="fas fa-user-edit feature-icon"></i> 
+                    Edit Profile: You can click "My Profile" to give your friends a name you like.
+                </li>
+                <li>
+                    <i class="fas fa-user-slash feature-icon"></i> 
+                    Delete Account: If you want to delete an account, you can click "Delete" to remove it.
+                </li>
+                <li>
+                    <i class="fas fa-key feature-icon"></i> 
+                    Change Password: By clicking "My Profile," you can change the username and password you use to log in.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Contact and Suggestions</h2>
+            <ul>
+                <li>
+                    <i class="fas fa-envelope feature-icon"></i> 
+                    Contact: If you have any suggestions for us, you can click on "Contact." Please make sure to provide your name and email correctly when submitting a suggestion.
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Usage and Quiz</h2>
+            <ul>
+                <li>
+                    <i class="fas fa-book-open feature-icon"></i> 
+                    Main Page: On the Main Page, you can read about topics like Programmer Language, Football Sports, General Knowledge, Buddha, Famous Persons, and Health and Food.
+                </li>
+                <li>
+                    <i class="fas fa-question-circle feature-icon"></i> 
+                    Quiz: After studying these topics, you can take a "Quiz" to test how much you have understood.
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Logging Out</h2>
+            <ul>
+                <li>
+                    <i class="fas fa-sign-out-alt feature-icon"></i> 
+                    Settings: The Setting menu is currently used only for logging out.
+                </li>
+            </ul>
+        </section>
+    </div>
+<script>
+        function openMenu() {
+            document.getElementById("sidemenu").classList.add("open");
+        }
+
+        // You will also need a way to close the menu
+        // For example, by clicking an X icon or the main content area
+        document.querySelector('.main-content').addEventListener('click', () => {
+            document.getElementById("sidemenu").classList.remove("open");
+        });
+        
+        // This is the function for the "Settings" link you provided
+        // You can link the id="openSetting" to your existing settings box function
+        document.getElementById("openSetting").addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Settings menu would open here');
+            // Replace the alert with your actual settings box code
+        });
+       document.addEventListener('DOMContentLoaded', (event) => {
+    const profileNameElement = document.getElementById("profileName");
+    const profilePicElement = document.getElementById("profilePic");
+    const imageInputElement = document.getElementById("imageInput");
+    
+    // Check for stored name and image on page load
+    const storedName = localStorage.getItem("name");
+    const storedImage = localStorage.getItem("profileImage");
+
+    if (storedName) {
+        profileNameElement.textContent = storedName;
+    } else {
+        profileNameElement.textContent = "Guest User";
+    }
+
+    if (storedImage) {
+        profilePicElement.src = storedImage;
+    }
+
+    // Event listener for clicking the profile picture
+    profilePicElement.addEventListener('click', () => {
+        imageInputElement.click(); // Open the file picker
+    });
+
+    // Event listener for when a user selects a file
+    imageInputElement.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imageUrl = event.target.result;
+                profilePicElement.src = imageUrl; // Display the new image
+                localStorage.setItem("profileImage", imageUrl); // Save to local storage
+            };
+            reader.readAsDataURL(file); // Read the image as a data URL
+        }
+    });
+
+    // Note: You will need to add this same JavaScript code to all your HTML pages
+    // that have the sidemenu.
+});
+        
+    </script>
+</body>
+</html>

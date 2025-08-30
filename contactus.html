@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="css/navbar.css">
+<style>
+
+
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color:rgb(31, 57, 58);
+    color: white;
+  }
+
+  .change-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 11px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    
+
+
+  
+  main {
+    display: flex;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color:white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  
+  main .form-section {
+    flex: 1;
+    padding: 40px 30px;
+  }
+  main .form-section h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  main .form-section label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #bbb;
+  }
+  main .form-section input[type="text"],
+  main .form-section input[type="email"],
+  main .form-section textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  main .form-section textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  main .form-section button {
+    width: 105%;
+    background-color: #074a8e;
+    border: none;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    color: #e0d9d9da;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  main .form-section button:hover {
+    background-color: #25a1b3;
+  }
+  a {
+    text-decoration: none;
+}
+</style>
+</head>
+<body style="color: black;">
+<div class="topbar">
+  <div class="left-group">
+    <span class="menu-icon" onclick="openMenu()">&#9776;</span>
+    <div class="logo">
+      <img src="picture/secondlogo.jpg" alt="Logo">
+    </div>
+    <h2>Quiz</h2>
+  </div>
+</div>
+
+<div id="sidemenu" class="sidemenu">
+        <ul class="setting" role="menu" aria-label="Main menu">
+        <a href="home.html" class="setting-option"><i class="fa-regular fa-address-book"></i>Home</a>
+        <a href="totalabout.html" class="setting-option"><i class="fa-solid fa-circle-question"></i>About us</a>
+        <a href="contactus.html" class="setting-option"><i class="fa-regular fa-address-book"></i> Contacts</a>
+        <a href="addaccount.html" class="setting-option"><i class="fa-regular fa-circle-plus"></i>Add Account</a>
+        <a href="editprofile.html" class="setting-option"><i class="fa-solid fa-key"></i> Update Password</a> 
+        <a href="logout.html"  class="setting-option"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+        </ul>
+    </div>
+
+<div align="center">
+
+  <main>
+    
+    <div class="form-section">
+
+      <h2>Contact Us</h2>
+      
+        
+        
+        <label for="subject">Phone Number:</label>
+        <input type="text" id="subject" name="mm_phone" inputmode="numeric" pattern="^09[0-9]{9}$"  required placeholder="09xxxxxxxxx" title="start with 09">
+
+        <label for="recipient">To:</label>
+        <input type="email" id="recipient" placeholder="pyaey2912@gmail.com" required="">
+    
+
+   
+        <label for="body">User Feedback:</label>
+        <textarea id="body" rows="6" placeholder="Write your message here..."></textarea>
+    
+    <button type="button" onclick="sendEmail()" class="submit-button">Send Email</button>
+</div>
+  </main>
+  <script>
+function sendEmail() {
+    // Form ထဲက data တွေကို variable ထဲထည့်ခြင်း
+    var recipient = document.getElementById('recipient').value;
+    var subject = document.getElementById('subject').value;
+    var body = document.getElementById('body').value;
+
+    // Special characters (space, newline) တွေကို URL မှာသုံးလို့ရအောင် encode လုပ်ခြင်း
+    var encodedSubject = encodeURIComponent(subject);
+    var encodedBody = encodeURIComponent(body);
+
+    // mailto link ကို တည်ဆောက်ခြင်း
+    var mailtoLink = `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody};`
+
+    // တည်ဆောက်ထားတဲ့ link ကို browser မှာဖွင့်ခိုင်းခြင်း
+    window.location.href=mailtoLink;
+}
+
+
+    // Include your JavaScript for openMenu(), closeMenu(), and localStorage here
+    function openMenu() {
+            document.getElementById("sidemenu").classList.add("open");
+        }
+
+        // You will also need a way to close the menu
+        // For example, by clicking an X icon or the main content area
+        document.querySelector('.main-content').addEventListener('click', () => {
+            document.getElementById("sidemenu").classList.remove("open");
+        });
+        
+        // This is the function for the "Settings" link you provided
+        // You can link the id="openSetting" to your existing settings box function
+        document.getElementById("openSetting").addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Replace the alert with your actual settings box code
+        });
+       document.addEventListener('DOMContentLoaded', (event) => {
+    const profileNameElement = document.getElementById("profileName");
+    const profilePicElement = document.getElementById("profilePic");
+    const imageInputElement = document.getElementById("imageInput");
+    
+    // Check for stored name and image on page load
+    const storedName = localStorage.getItem("name");
+    const storedImage = localStorage.getItem("profileImage");
+
+    if (storedName) {
+        profileNameElement.textContent = storedName;
+    } else {
+        profileNameElement.textContent = "Guest User";
+    }
+
+    if (storedImage) {
+        profilePicElement.src = storedImage;
+    }
+
+    // Event listener for clicking the profile picture
+    profilePicElement.addEventListener('click', () => {
+        imageInputElement.click(); // Open the file picker
+    });
+
+    // Event listener for when a user selects a file
+    imageInputElement.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imageUrl = event.target.result;
+                profilePicElement.src = imageUrl; // Display the new image
+                localStorage.setItem("profileImage", imageUrl); // Save to local storage
+            };
+            reader.readAsDataURL(file); // Read the image as a data URL
+        }
+    });
+
+    // Note: You will need to add this same JavaScript code to all your HTML pages
+    // that have the sidemenu.
+});
+
+</script>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 80px; /* Add padding to prevent content from hiding behind the fixed topbar */
+            background-color: #f0f2f5;
+        }
+
+        /* --- Top Navigation Bar --- */
+        .topbar {
+            display: flex;
+            justify-content: flex-start; /* Align items to the start (left) */
+            align-items: center;
+            padding: 10px 20px;
+            background: #fff;
+            position: fixed; /* Fixed position */
+            width: 100%; /* Full width */
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000; /* Ensure it stays on top of other content */
+            box-sizing: border-box;
+        }
+        
+        .topbar .left-group {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Spacing between menu icon, logo, and text */
+        }
+        
+        .topbar .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        .topbar .logo img {
+            height: 40px; /* Smaller logo size */
+            border-radius: 5px;
+        }
+        
+        .topbar h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* --- Sidebar Menu --- */
+        .sidemenu {
+            position: fixed;
+            top: 0;
+            left: -300px; /* Start off-screen */
+            width: 250px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+            transition: left 0.3s ease; /* Smooth slide-in transition */
+            z-index: 999;
+            padding-top: 60px; /* Padding for topbar */
+        }
+        
+        .sidemenu.open {
+            left: 0; /* Slide in on-screen */
+        }
+
+        .sidemenu .setting ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidemenu .setting li {
+            border-bottom: 1px solid #e4e2e2;
+        }
+
+        .sidemenu .setting-option {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .sidemenu .setting-option i {
+            margin-right: 15px;
+            color: #007BFF;
+        }
+        
+        .sidemenu .setting-option:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            padding: 20px;
+            text-align: center;
+        }
+        /* User Profile Section in Sidebar */
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.user-profile img {
+    width: 80px;
+    height: 80px;
+    min-width: 80px; /* ပုံမရှိရင်တောင် ဒီအရွယ်အစားရှိနေအောင် */
+    min-height: 80px; /* ပုံမရှိရင်တောင် ဒီအရွယ်အစားရှိနေအောင် */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px dashed #bbb; /* အသုံးပြုသူကို ပုံထည့်ဖို သိစေရန် dash border ပြောင်းပါ */
+    background-color: #eee; /* နေရာလွတ်အတွက် နောက်ခံအရောင် */
+    cursor: pointer;
+}
+
+.user-profile h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Adjust padding for the list of links */
+.sidemenu .setting {
+    padding-top: 0;
+}
+
+.main {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #354b61;
+            border-radius: 10px; /* Adjusted border-radius for a cleaner look */
+            box-shadow: 0 4px 10px rgba(236, 230, 230, 0.2); /* Adjusted shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(231, 220, 220, 0.3);
+        }
+
+        .card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px; /* Square images with a slight curve */
+            margin-bottom: 15px;
+            border: 2px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05); /* A less aggressive hover effect */
+        }
+
+        .card h3 {
+            font-size: 18px; /* Slightly smaller font size */
+            margin: 0 0 10px;
+            color: #f7f7f7;
+        }
+
+        .card p {
+            font-size: 13px; /* Smaller font for paragraph */
+            color: #ecedee;
+            margin-bottom: 15px;
+        }
+
+        .card .links {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Reduced gap between buttons */
+        }
+        
+        .card .links a {
+            padding: 8px 15px; /* Smaller padding for buttons */
+            border-radius: 5px; /* Smaller border-radius for buttons */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px; /* Smaller font size for button text */
+            transition: background-color 0.3s ease;
+        }
+        .quiz-btn {
+            background-color: #1cb81c;
+            color: #fff;
+        }
+
+        .quiz-btn:hover {
+            background-color: #c0392b;
+        }
+/* Settings Pop-up Menu */
+.settings-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    z-index: 1001;
+    top: 250px; /* Adjust this value to be below your navbar */
+    left: 200px; /* Distance from the right edge */
+    width: 150px; /* Fixed width */
+    height: auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* For closing the box with a click on the button, you need to change the CSS for the 'X' button */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.settings-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.settings-option-btn {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #e9ecef;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.settings-option-btn:hover {
+    background-color: #d0d0d0;
+}
+a {
+    text-decoration: none;
+}

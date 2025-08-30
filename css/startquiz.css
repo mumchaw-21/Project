@@ -1,0 +1,72 @@
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #281c3d;
+    color: #fff;
+    text-align: center;
+    /* ... (rest of the background styles remain the same) ... */
+    background-image:
+        radial-gradient(circle, #b907fa 1px, transparent 1px),
+        repeating-linear-gradient(210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+        repeating-linear-gradient(-210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px);
+    background-size: 50px 50px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px 60px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 20px;
+}
+
+.title {
+    font-size: 3em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #ff3388, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(184, 51, 255, 0.5);
+}
+
+.description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+/* Updated CSS for the <a> tag */
+.start-btn {
+    display: inline-block; /* Important for padding and sizing */
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(90deg, #b833ff, #8a2be2);
+    box-shadow: 0 0 15px rgba(184, 51, 255, 0.6);
+    transition: all 0.3s ease;
+    text-decoration: none; /* Removes the default underline */
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(184, 51, 255, 0.8);
+}

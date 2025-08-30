@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Quiz (5 mins total + tracker)</title>
+  <link rel="stylesheet" href="css/Q1.css">
+</head>
+<body>
+  <div class="profile-info">
+        <h3 id="profileName"></h3>
+    </div>
+    
+   <script>
+    const name = localStorage.getItem("name");
+if(name) {
+  document.getElementById("profileName").innerText =name;
+} else {
+  // If not logged in, redirect to login page
+  window.location.href = "login.html";
+}
+</script>
+<div class="timer" id="timer"></div>
+<h2>Programming Quiz</h2>
+<div id="quiz-container">
+  <div id="question"></div>
+  <div id="answers" class="answers"></div>
+
+  <div class="button">
+  <a id="prev-btn">Previous</a>
+  </div>
+  <div class="center">
+  <a id="submit-btn">Submit</a>
+  </div>
+<div class="button">
+  <a id="next-btn">Next</a>
+</div>
+<br>
+
+  <div class="tracker" id="tracker">
+    
+    <span class="tracker-number">12345678910</span>
+    
+  </div>
+</div>
+
+<div id="result" class="hidden">
+<p id="score"></p>
+  <button id="review-btn">Review</button>
+  <div id="review-container"></div>
+<script src="js/ProgrammingQuiz.js"></script>
+</body>
+</html>

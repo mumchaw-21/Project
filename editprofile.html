@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Change Account Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #0d0124;
+            color: #fff;
+            top: 20px;
+            background-image:
+                radial-gradient(circle, #3a0050 1px, transparent 1px),
+                repeating-linear-gradient(210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+                repeating-linear-gradient(150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+                repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+                repeating-linear-gradient(30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+                repeating-linear-gradient(-30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+                repeating-linear-gradient(-90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+                repeating-linear-gradient(-150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
+                repeating-linear-gradient(-210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px);
+            background-size: 50px 50px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+        }
+
+        .change-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 11px;
+            background: #4CAF50;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    
+a {
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <div class="topbar">
+  <div class="left-group">
+    <span class="menu-icon" onclick="openMenu()">&#9776;</span>
+    <div class="logo">
+      <img src="picture/secondlogo.jpg" alt="Logo">
+    </div>
+    <h2>Quiz</h2>
+  </div>
+</div>
+
+<div id="sidemenu" class="sidemenu">
+   
+        <ul class="setting" role="menu" aria-label="Main menu">
+        <a href="home.html" class="setting-option"><i class="fa-regular fa-address-book"></i>Home</a>
+        <a href="totalabout.html" class="setting-option"><i class="fa-solid fa-circle-question"></i>About us</a>
+        <a href="contactus.html" class="setting-option"><i class="fa-regular fa-address-book"></i> Contacts</a>
+        <a href="addaccount.html" class="setting-option"><i class="fa-regular fa-circle-plus"></i>Add Account</a>
+        <a href="editprofile.html" class="setting-option"><i class="fa-solid fa-key"></i> Update Password</a> 
+        <a href="logout.html"  class="setting-option"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+        </ul>
+    
+</div>
+    <div class="change-container">
+        <div id="verification-section">
+            <h2>Verify Account</h2>
+            <input type="text" id="currentName" placeholder="Current Username">
+            <input type="password" id="currentPassword" placeholder="Current Password">
+            <button onclick="verifyUser()">Verify</button>
+        </div>
+
+        <div id="change-section" style="display: none;">
+            <h2>Change Account Details</h2>
+            <input type="text" id="newName" placeholder="New Username">
+            <input type="password" id="newPassword" placeholder="New Password">
+            <button onclick="saveChanges()">Save Changes</button>
+        </div>
+    </div>
+
+<script>
+    window.onload = function() {
+        const activeName = localStorage.getItem("name");
+        if (!activeName) {
+            alert("Please log in.");
+            window.location.href="login.html";
+        }
+    };
+
+    function verifyUser() {
+        const currentName = document.getElementById("currentName").value.trim();
+        const currentPassword = document.getElementById("currentPassword").value.trim();
+
+        const storedName = localStorage.getItem("name");
+        const storedPassword = localStorage.getItem("password");
+
+        if (currentName === storedName && currentPassword === storedPassword) {
+            alert("Verification successful. You can now change your details.");
+            document.getElementById("verification-section").style.display = "none";
+            document.getElementById("change-section").style.display = "block";
+        } else {
+            alert("Invalid username or password. Please try again.");
+        }
+    }
+function saveChanges() {
+    const newName = document.getElementById("newName").value.trim();
+    const newPassword = document.getElementById("newPassword").value.trim();
+
+    if (!newName || newName.charAt(0) !== newName.charAt(0).toUpperCase()) {
+        alert("Name must not be empty and must start with a capital letter.");
+        return;
+    }
+
+    // Check if the new password meets the requirements
+    if (newPassword.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return;
+    }
+    
+    // Check if the user wants to change both name and password
+    const confirmChange = confirm("Are you sure you want to save these changes?");
+    if (confirmChange) {
+        localStorage.setItem("name", newName);
+        localStorage.setItem("password", newPassword);
+        
+        alert("Changes saved successfully.");
+        
+        // Redirect to the home page after successful save
+        window.location.href="home.html"; // Change "home.html" to your actual home page file name
+    } else {
+        // User clicked Cancel on the confirmation dialog
+        return;
+    }
+}    
+</script>
+<script>
+    // Include your JavaScript for openMenu(), closeMenu(), and localStorage here
+    function openMenu() {
+            document.getElementById("sidemenu").classList.add("open");
+        }
+
+        // You will also need a way to close the menu
+        // For example, by clicking an X icon or the main content area
+        document.querySelector('.main-content').addEventListener('click', () => {
+            document.getElementById("sidemenu").classList.remove("open");
+        });
+        
+        // This is the function for the "Settings" link you provided
+        // You can link the id="openSetting" to your existing settings box function
+        document.getElementById("openSetting").addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Replace the alert with your actual settings box code
+        });
+       document.addEventListener('DOMContentLoaded', (event) => {
+    const profileNameElement=document.getElementById("profileName");
+    const profilePicElement=document.getElementById("profilePic");
+    const imageInputElement=document.getElementById("imageInput");
+    
+    // Check for stored name and image on page load
+    const storedName = localStorage.getItem("name");
+    const storedImage = localStorage.getItem("profileImage");
+
+    if (storedName) {
+        profileNameElement.textContent = storedName;
+    } else {
+        profileNameElement.textContent = "Guest User";
+    }
+
+    if (storedImage) {
+        profilePicElement.src = storedImage;
+    }
+
+    // Event listener for clicking the profile picture
+    profilePicElement.addEventListener('click', () => {
+        imageInputElement.click(); // Open the file picker
+    });
+
+    // Event listener for when a user selects a file
+    imageInputElement.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imageUrl = event.target.result;
+                profilePicElement.src = imageUrl; // Display the new image
+                localStorage.setItem("profileImage", imageUrl); // Save to local storage
+            };
+            reader.readAsDataURL(file); // Read the image as a data URL
+        }
+    });
+
+    // Note: You will need to add this same JavaScript code to all your HTML pages
+    // that have the sidemenu.
+});
+</script>
+
+</body>
+</html>

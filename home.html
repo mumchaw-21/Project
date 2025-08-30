@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<div class="topbar">
+    <div class="left-group">
+        <span class="menu-icon" onclick="openMenu()">&#9776;</span>
+        <div class="logo">
+            <img src="picture/secondlogo.jpg" alt="Logo">
+        </div>
+        <h2>Quiz</h2>
+    </div>
+</div>
+
+<div id="sidemenu" class="sidemenu">
+    <div class="user-profile">
+        <img id="profilePic" src="defuld.jpg" alt="Profile Picture">
+        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+        <h3 id="profileName">User Name</h3>
+    </div>
+
+        <ul class="setting" role="menu" aria-label="Main menu">
+        <a href="home.html" class="setting-option"><i class="fa-regular fa-address-book"></i>Home</a>
+        <a href="totalabout.html" class="setting-option"><i class="fa-solid fa-circle-question"></i>About us</a>
+        <a href="contactus.html" class="setting-option"><i class="fa-regular fa-address-book"></i> Contacts</a>
+        <a href="addaccount.html" class="setting-option"><i class="fa-regular fa-circle-plus"></i>Add Account</a>
+        <a href="editprofile.html" class="setting-option"><i class="fa-solid fa-key"></i> Update Password</a> 
+        <a href="logout.html"  class="setting-option"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+        </ul>
+    </div>
+    
+   <div class="main">
+        <h1>Learning</h1>
+        <div class="container">
+
+            <div class="card">
+                <img src="picture/programming.jpg" alt="Programming Language">
+                <h3>Programming Language</h3>
+                <div class="links">
+                    <a href="ProgrammingQuiz.html" class="quiz-btn">Quiz</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="picture/football.jpg" alt="Football Sport">
+                <h3>Football Sport</h3>
+                <div class="links">
+                    <a href="FootballQuiz.html" class="quiz-btn">Quiz</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="picture/knowledge.jpg" alt="General Knowledge">
+                <h3>General Knowledge</h3>
+                <div class="links">
+                     <a href="GeneralKnowledgeQuiz.html" class="quiz-btn">Quiz </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="picture/buddha.jpg" alt="Buddha">
+                <h3>Buddha</h3>
+                <div class="links">
+                    <a href="BuddhaQuiz.html" class="quiz-btn">Quiz </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="picture/famous.jpg" alt="Famous Person">
+                <h3>Famous Person</h3>
+                <div class="links">
+                    <a href="FamousPersonQuiz.html" class="quiz-btn">Quiz</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="picture/health.png" alt="Health and Food">
+                <h3>Health and Food</h3>
+                <div class="links">
+                    
+                    <a href="HealthandFoodQuiz.html" class="quiz-btn">Quiz</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+<script>
+    
+    // --- Sidebar and Profile Functionality ---
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const profileNameElement = document.getElementById("profileName");
+        const profilePicElement = document.getElementById("profilePic");
+        const imageInputElement = document.getElementById("imageInput");
+        const sidemenu = document.getElementById("sidemenu");
+
+        // Load saved name and image from localStorage on page load
+        const storedName = localStorage.getItem("name");
+        const storedImage = localStorage.getItem("profileImage");
+
+        if (storedName) {
+            profileNameElement.textContent = storedName;
+        } else {
+            profileNameElement.textContent="Guest User";
+        }
+
+        if (storedImage) {
+            profilePicElement.src = storedImage;
+        }
+
+        // Event listener to open the sidebar
+        document.querySelector('.menu-icon').addEventListener('click', () => {
+            sidemenu.classList.add("open");
+        });
+
+        // Event listener to close the sidebar by clicking outside
+        window.onclick = function(event) {
+            if (!event.target.closest('#sidemenu') && !event.target.closest('.menu-icon')) {
+                sidemenu.classList.remove("open");
+            }
+        }
+        
+        // Event listener to open the file picker when the profile picture is clicked
+        profilePicElement.addEventListener('click', () => {
+            imageInputElement.click(); 
+        });
+
+        // Event listener to handle the user selecting a file
+        imageInputElement.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const imageUrl = event.target.result;
+                    profilePicElement.src = imageUrl;
+                    localStorage.setItem("profileImage", imageUrl);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
