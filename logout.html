@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logout Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="css/home.css">
   <style>
     body {
     margin: 0;
@@ -14,7 +16,7 @@
     min-height: 100vh;
     background-color: rgb(31, 57, 58);
     color: #fff;
-    text-align: center;
+    
     }
     .logout-box {
       background: rgb(116, 168, 216);
@@ -46,6 +48,26 @@
   </style>
 </head>
 <body>
+  <div class="topbar">
+  <div class="left-group">
+    <span class="menu-icon" onclick="openMenu()">&#9776;</span>
+    <div class="logo">
+      <img src="picture/secondlogo.jpg" alt="Logo">
+    </div>
+    <h2>Quiz</h2>
+  </div>
+</div>
+<div id="sidemenu" class="sidemenu">
+        <ul class="setting" role="menu" aria-label="Main menu">
+        <a href="home.html" class="setting-option"><i class="fa-regular fa-address-book"></i>Home</a>
+        <a href="totalabout.html" class="setting-option"><i class="fa-solid fa-circle-question"></i>About us</a>
+        <a href="contactus.html" class="setting-option"><i class="fa-regular fa-address-book"></i> Contacts</a>
+        <a href="addaccount.html" class="setting-option"><i class="fa-regular fa-circle-plus"></i>Add Account</a>
+        <a href="editprofile.html" class="setting-option"><i class="fa-solid fa-key"></i> Update Password</a> 
+        <a href="logout.html"  class="setting-option"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+        </ul>
+    </div>
+
 
   <div class="logout-box">
     <h2>Logout</h2>
@@ -60,9 +82,68 @@
       window.location.href = "thankyou.html"; 
     }
     function cancelLogout() {
-      alert("Logout canceled. You are still logged in home.");
+      alert("Logout canceled. You are still in home.");
       window.location.href = "home.html"; 
     }
+    function openMenu() {
+            document.getElementById("sidemenu").classList.add("open");
+        }
+
+        // You will also need a way to close the menu
+        // For example, by clicking an X icon or the main content area
+        document.querySelector('.main-content').addEventListener('click', () => {
+            document.getElementById("sidemenu").classList.remove("open");
+        });
+        
+        // This is the function for the "Settings" link you provided
+        // You can link the id="openSetting" to your existing settings box function
+        document.getElementById("openSetting").addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Replace the alert with your actual settings box code
+        });
+       document.addEventListener('DOMContentLoaded', (event) => {
+    const profileNameElement = document.getElementById("profileName");
+    const profilePicElement = document.getElementById("profilePic");
+    const imageInputElement = document.getElementById("imageInput");
+    
+    // Check for stored name and image on page load
+    const storedName = localStorage.getItem("name");
+    const storedImage = localStorage.getItem("profileImage");
+
+    if (storedName) {
+        profileNameElement.textContent = storedName;
+    } else {
+        profileNameElement.textContent = "Guest User";
+    }
+
+    if (storedImage) {
+        profilePicElement.src = storedImage;
+    }
+
+    // Event listener for clicking the profile picture
+    profilePicElement.addEventListener('click', () => {
+        imageInputElement.click(); // Open the file picker
+    });
+
+    // Event listener for when a user selects a file
+    imageInputElement.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imageUrl = event.target.result;
+                profilePicElement.src = imageUrl; // Display the new image
+                localStorage.setItem("profileImage", imageUrl); // Save to local storage
+            };
+            reader.readAsDataURL(file); // Read the image as a data URL
+        }
+    });
+
+    // Note: You will need to add this same JavaScript code to all your HTML pages
+    // that have the sidemenu.
+});
+
   </script>
 
 </body>
