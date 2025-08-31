@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +8,14 @@
   <style>
     body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #0d0124;
+    background-color: rgb(31, 57, 58);
     color: #fff;
     text-align: center;
-    /* ... (rest of the background styles remain the same) ... */
-    background-image:
-        radial-gradient(circle, #3a0050 1px, transparent 1px),
-        repeating-linear-gradient(210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
-        repeating-linear-gradient(150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
-        repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
-        repeating-linear-gradient(30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
-        repeating-linear-gradient(-30deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
-        repeating-linear-gradient(-90deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
-        repeating-linear-gradient(-150deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px),
-        repeating-linear-gradient(-210deg, transparent 0, transparent 40px, rgba(255,255,255,.03) 41px, rgba(255,255,255,.03) 42px);
-    background-size: 50px 50px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-}
+    }
     .logout-box {
       background: rgb(116, 168, 216);
       padding: 30px;
@@ -72,9 +60,10 @@
       window.location.href = "thankyou.html"; 
     }
     function cancelLogout() {
-      alert("Logout canceled.You are still home.");
-      window.location.href="home.html"; 
+      alert("Logout canceled. You are still logged in.");
+      window.location.href = "home.html"; 
     }
   </script>
+
 </body>
 </html>
