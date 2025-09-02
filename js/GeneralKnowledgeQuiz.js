@@ -262,7 +262,7 @@ const questions = [
 let selectedQuestions = [];
 let currentQuestionIndex = 0;
 let answers = {};
-let totalTime = 60; // 10 minutes total
+let totalTime = 120; // 10 minutes total
 let timer;
 
 function getRandomQuestions() {
