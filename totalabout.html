@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="my">
 <head>
@@ -10,7 +11,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding-top: 80px; /* Navbar အောက်မှာ နေရာချန်ထားခြင်း */
+            padding-top: 80px; 
             background-color: rgb(31, 57, 58);
             color: white;
         }
@@ -73,10 +74,14 @@
     </div>
     <div id="sidemenu" class="sidemenu">
         <ul class="setting" role="menu" aria-label="Main menu">
-        <a href="home.html" class="setting-option"><i class="fa-regular fa-address-book"></i>Home</a>
-        <a href="totalabout.html" class="setting-option"><i class="fa-solid fa-circle-question"></i>About us</a>
-        <a href="contactus.html" class="setting-option"><i class="fa-regular fa-address-book"></i> Contacts</a>
-        <a href="addaccount.html" class="setting-option"><i class="fa-regular fa-circle-plus"></i>Add Account</a>
+       <a href="home.html" class="setting-option">
+        <i class="fas fa-home"></i>Home</a>
+        <a href="totalabout.html" class="setting-option">
+            <i class="fa-solid fa-circle-question"></i>About us</a>
+        <a href="contactus.html" class="setting-option">
+            <i class="fas fa-envelope"></i>Contacts</a>
+        <a href="addaccount.html" class="setting-option">
+            <i class="fas fa-user-plus"></i>Add Account</a>
         <a href="editprofile.html" class="setting-option"><i class="fa-solid fa-key"></i> Update Password</a> 
         <a href="logout.html"  class="setting-option"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
         </ul>
@@ -88,44 +93,37 @@
             <p>Users can manage their accounts in the following ways:</p>
             <ul>
                 <li>
-                    <i class="fas fa-image feature-icon"></i> 
-                    Add Profile Picture: You can click on the profile picture to add your own photos.
+                    <i class="fas fa-home feature-icon"></i>
+                    Home: You can click on the profile picture to add your own photos.
                 </li>
+
+                <section>
+                <h2>Contact and Suggestions</h2>
+               <ul>
+                <li>
+                <i class="fas fa-envelope feature-icon"></i> 
+                Contact: If you have any suggestions for us, you can click on "Contact." Please provide your phone number and the admin's email and tell us about your experiences.
+            </li>
+            </ul>
+          </section>
+
                 <li>
                     <i class="fas fa-user-plus feature-icon"></i> 
-                    Add Account: By clicking "Add Account," you can add your friends to the app simply by knowing their name, email, and password.
-                </li>
-                <li>
-                    <i class="fas fa-user-edit feature-icon"></i> 
-                    Edit Profile: You can click "My Profile" to give your friends a name you like.
-                </li>
-                <li>
-                    <i class="fas fa-user-slash feature-icon"></i> 
-                    Delete Account: If you want to delete an account, you can click "Delete" to remove it.
-                </li>
+                Add Account: If you want your friends to play the game, you can share the app link with them from Telegram.
+                     </li>
+                
                 <li>
                     <i class="fas fa-key feature-icon"></i> 
-                    Change Password: By clicking "My Profile," you can change the username and password you use to log in.
+                    Update Password: By clicking "Update password" you can change the username and password you use to log in.
                 </li>
             </ul>
         </section>
 
-        <section>
-            <h2>Contact and Suggestions</h2>
-            <ul>
-                <li>
-                    <i class="fas fa-envelope feature-icon"></i> 
-                    Contact: If you have any suggestions for us, you can click on "Contact." Please make sure to provide your name and email correctly when submitting a suggestion.
-                </li>
-            </ul>
-        </section>
+
         <section>
             <h2>Usage and Quiz</h2>
             <ul>
-                <li>
-                    <i class="fas fa-book-open feature-icon"></i> 
-                    Main Page: On the Main Page, you can read about topics like Programmer Language, Football Sports, General Knowledge, Buddha, Famous Persons, and Health and Food.
-                </li>
+
                 <li>
                     <i class="fas fa-question-circle feature-icon"></i> 
                     Quiz: After studying these topics, you can take a "Quiz" to test how much you have understood.
@@ -136,9 +134,9 @@
             <h2>Logging Out</h2>
             <ul>
                 <li>
-                    <i class="fas fa-sign-out-alt feature-icon"></i> 
-                    Settings: The Setting menu is currently used only for logging out.
-                </li>
+                <i class="fas fa-sign-out-alt feature-icon"></i> 
+                 If you want to logout of your current account, you can click "Log out" to exit the application.
+            </li>
             </ul>
         </section>
     </div>
